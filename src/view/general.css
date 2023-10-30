@@ -1,0 +1,41 @@
+:root {
+	--space_2: .5em;
+	--space: 1em;
+	--spaceX2: 2em;
+	--corner-size: 2em;
+	--shadow-color: #0000008f;
+}
+
+html {
+	background: linear-gradient(navy, blue);
+	color: white;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	align-items: center;
+}
+
+body>*+* {
+	margin-top: var(--space);
+}
+
+.middle-hint,
+.hint {
+	width: min-content;
+	font-size: small;
+	color: lightgray;
+	justify-self: end;
+}
+
+.hint {
+	position: relative;
+	top: -.5em;
+	right: .5em;
+}
+
+[hide] {
+	display: none;
+}

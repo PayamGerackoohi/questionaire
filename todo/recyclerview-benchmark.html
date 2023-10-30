@@ -1,0 +1,186 @@
+<html>
+
+<head>
+	<style>
+		:root {
+			--size: 3em;
+			--sizeX2: 6em;
+		}
+
+		html {
+			background-color: black;
+		}
+
+		#content,
+		.controller {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1em;
+		}
+
+		.controller>button {
+			display: grid;
+			grid-template-areas: 'a';
+			grid-template-rows: auto;
+			grid-template-columns: auto;
+			width: var(--sizeX2);
+			padding: 1em;
+			font-size: large;
+			box-sizing: content-box;
+			color: white;
+		}
+
+		.controller>button>* {
+			margin: 0;
+			grid-area: a;
+		}
+
+		#pageId {
+			margin: 0;
+			width: var(--size);
+			text-align: center;
+			color: white;
+		}
+
+		#content>.box {
+			width: var(--sizeX2);
+			height: var(--sizeX2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+		}
+
+		#content p {
+			margin: 0;
+		}
+
+		.red {
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		.blue {
+			background-color: blue;
+		}
+
+		.orange {
+			background-color: orange;
+		}
+
+		.black {
+			background-color: black;
+		}
+
+		.hint {
+			width: min-content;
+			font-size: small;
+			color: lightgray;
+			justify-self: end;
+			position: relative;
+			top: -.5em;
+			right: .5em;
+		}
+	</style>
+</head>
+
+<body onkeypress="onKeyPressed(event)">
+	<div class="controller">
+		<button class="red" onclick="previousPage()">
+			<p>Previous</p>
+			<p class="hint">&lt;</p>
+		</button>
+		<h2 id="pageId"></h2>
+		<button class="green" onclick="nextPage()">
+			<p>Next</p>
+			<p class="hint">&gt;</p>
+		</button>
+	</div>
+	<div id="content">
+	</div>
+	<script>
+		'use strict'
+		const pageIdEl = document.getElementById('pageId')
+		const contentEl = document.getElementById('content')
+		const colors = ['red', 'green', 'blue']
+		// const colors = ['red', 'green', 'blue', 'orange', 'black', 'cyan', 'magenta']
+		let pageIndex = 0
+
+		// TODO class RecyclerView {}
+
+		init()
+
+		function init() {
+			updatePageIdEl()
+			makeBoxes()
+			updateBoxes()
+		}
+
+		function makeBoxes() {
+			for (let i = 0; i < colors.length; i++) {
+				const boxEl = contentEl.appendChild(document.createElement('div'))
+				boxEl.className = 'box'
+				boxEl.style['background-color'] = colors[i]
+				boxEl.appendChild(document.createElement('p'))
+			}
+		}
+
+		function updateBoxes() {
+			let i = -1
+			for (let child of contentEl.children)
+				updateBox(child, pageIndex + i++)
+		}
+
+		function updateBox(boxEl, value) {
+			boxEl.querySelectorAll('p')[0].textContent = value
+		}
+
+		function updatePageIdEl() {
+			pageIdEl.textContent = pageIndex
+		}
+
+		function nextPage() {
+			pageIndex++
+			updatePageIdEl()
+			shiftBoxesLeft()
+		}
+
+		function previousPage() {
+			pageIndex--
+			updatePageIdEl()
+			shiftBoxesRight()
+		}
+
+		function shiftBoxesLeft() {
+			const child = contentEl.removeChild(contentEl.children[0])
+			updateBox(child, pageIndex + contentEl.children.length - 1)
+			contentEl.appendChild(child)
+		}
+
+		function shiftBoxesRight() {
+			const child = contentEl.removeChild(contentEl.children[contentEl.children.length - 1])
+			updateBox(child, pageIndex - 1)
+			contentEl.insertBefore(child, contentEl.children[0])
+		}
+
+		function onKeyPressed(event) {
+			switch (event.key) {
+				case ',':
+				case '<':
+					previousPage()
+					break
+				case '.':
+				case '>':
+					nextPage()
+					break
+				default:
+					break
+			}
+		}
+	</script>
+</body>
+
+</html>

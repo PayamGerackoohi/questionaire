@@ -1,0 +1,33 @@
+{
+	"title": "Sample Questionaire",
+	"questions": [
+		{
+			"type": "single",
+			"question": "Question 1",
+			"options": [
+				"Option 1",
+				"Option 2",
+				"Option 3"
+			],
+			"selected": 2
+		},
+		{
+			"type": "multi",
+			"question": "Question 2",
+			"options": [
+				{
+					"option": "Option 1",
+					"selected": true
+				},
+				{
+					"option": "Option 2",
+					"selected": false
+				},
+				{
+					"option": "Option 3",
+					"selected": true
+				}
+			]
+		}
+	]
+}

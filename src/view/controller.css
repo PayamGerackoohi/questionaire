@@ -1,0 +1,43 @@
+#controller {
+	display: flex;
+	align-items: center;
+	box-shadow: 1px 1px 10px 1px var(--shadow-color);
+	border-radius: var(--corner-size);
+}
+
+#controller>button {
+	display: grid;
+	grid-template-areas: 'a';
+	grid-template-rows: auto;
+	grid-template-columns: auto;
+	width: 6em;
+	padding: var(--space_2);
+	font-size: large;
+	box-sizing: content-box;
+	color: white;
+}
+
+#controller>button[disabled] {
+	background-color: gray;
+}
+
+#controller>button>* {
+	margin: 0;
+	grid-area: a;
+}
+
+#controller>.previous {
+	background: linear-gradient(to left, firebrick, red);
+	border-top-left-radius: var(--corner-size);
+	border-bottom-left-radius: var(--corner-size);
+}
+
+#controller>.next {
+	background: linear-gradient(to right, darkgreen, green);
+	border-top-right-radius: var(--corner-size);
+	border-bottom-right-radius: var(--corner-size);
+}
+
+#controller>button[disabled] {
+	background: gray;
+}

@@ -1,0 +1,24 @@
+#status-bar {
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: auto;
+	background-color: gray;
+	box-shadow: 1px 1px 10px 1px var(--shadow-color);
+}
+
+#status-bar>.back,
+#status-bar>.label {
+	grid-row: 1;
+	grid-column: 1;
+}
+
+#status-bar>.back {
+	background-color: green;
+	transition: .3s;
+}
+
+#status-bar>.label {
+	z-index: 1;
+	justify-self: center;
+}

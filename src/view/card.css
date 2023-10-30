@@ -1,0 +1,39 @@
+#content {
+	width: 60%;
+	margin-bottom: var(--space);
+}
+
+#content>fieldset {
+	background: linear-gradient(to right, green, darkgreen);
+	border-radius: var(--corner-size);
+	padding-inline: var(--spaceX2);
+	box-shadow: 1px 1px 10px 1px var(--shadow-color);
+}
+
+#content>fieldset>* {
+	margin-bottom: var(--space);
+}
+
+#content>fieldset>legend {
+	background-color: green;
+	border: 3px groove gray;
+	padding-inline: var(--space);
+	padding-block: var(--space_2);
+}
+
+#content>fieldset>.option {
+	display: flex;
+}
+
+#content>fieldset>.option>* {
+	flex-shrink: 0;
+}
+
+#content>fieldset>.option>:first-child {
+	padding-right: var(--space_2);
+}
+
+#content>fieldset>.option>:last-child {
+	padding-left: var(--space_2);
+	flex-shrink: 1;
+}

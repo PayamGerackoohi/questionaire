@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Questionaire exclusions
+/output/
+/node_modules/
+pnpm-lock.yaml

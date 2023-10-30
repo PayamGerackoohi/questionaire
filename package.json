@@ -1,0 +1,17 @@
+{
+	"name": "questionaire",
+	"version": "1.0.0",
+	"description": "Simple Questionaire Pdf Generator",
+	"main": "main.js",
+	"scripts": {
+		"start": "clear && printf '\\e[3J';node main.js",
+		"tests": "clear && printf '\\e[3J';jest ./tests",
+		"single-test": "clear && printf '\\e[3J';jest -i ./tests -t 'replace"
+	},
+	"author": "PayamGr",
+	"license": "MIT License",
+	"devDependencies": {
+		"@jest/globals": "^29.7.0",
+		"jest": "^29.7.0"
+	}
+}

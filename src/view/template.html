@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>
+		<!--# title -->
+	</title>
+	<style>
+		/*# style-general */
+		/*# style-card */
+		/*# style-controller */
+		/*# style-status-bar */
+		/*# style-summary */
+		/*# style-media */
+	</style>
+</head>
+
+<body onkeypress="onKeyPressed(event)">
+	<noscript>Needs Javascript to load the file. You may need to enable it first.</noscript>
+	<div id="status-bar">
+		<div id="status-bar-back" class="back"></div>
+		<p id="status-bar-label" class="label">1/10</p>
+	</div>
+	<div id="controller">
+		<button id="previous-button" class="previous" onclick="previousQuestion()">
+			<p>Previous</p>
+			<p class="hint">&lt;</p>
+		</button>
+		<button id="next-button" class="next" onclick="nextQuestion()">
+			<p>Next</p>
+			<p class="hint">&gt;</p>
+		</button>
+	</div>
+	<div id="content"></div>
+	<div id="summary"></div>
+
+	<script>
+		//# script
+	</script>
+</body>
+
+</html>

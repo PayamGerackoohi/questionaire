@@ -1,0 +1,29 @@
+@media print {
+	html {
+		background: white;
+	}
+
+	#status-bar,
+	#controller,
+	#content,
+	#summary>h3,
+	#summary>.print-button-container {
+		display: none;
+	}
+
+	body {
+		padding-inline: var(--space);
+	}
+
+	#summary {
+		width: 100%;
+	}
+
+	#summary>* {
+		margin-inline: var(--space);
+	}
+
+	#summary>.print {
+		display: block;
+	}
+}
